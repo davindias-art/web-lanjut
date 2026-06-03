@@ -12,7 +12,9 @@ import User from './routes/user.router.js';
 const app = express();
 try {
     await db.authenticate();
-    console.log("database ok");
+    console.log("Database connected");
+    await db.sync();
+    console.log("Database synced");
 } catch (error) {
     console.log("belum konek", error);
 }
