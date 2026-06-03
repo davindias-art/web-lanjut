@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import mysql2 from "mysql2";
-const db = new Sequelize ('web_lanjut', 'root', '', {
-    host: "localhost",
+const db = new Sequelize ('defaultdb', 'avnadmin', 'AVNS_Jd5Bx5Bgsk56hHoW9kf', {
+    host: "mysql-7793bcc-web-lanjut.h.aivencloud.com",
     dialect: "mysql",
     "define": {
         "timestamps": false
@@ -9,6 +9,6 @@ const db = new Sequelize ('web_lanjut', 'root', '', {
 });
 export default db;
 
-(async()=>{
-    await db.sync();
-}) ();
+// (async()=>{
+//     await db.sync();
+// }) ();
