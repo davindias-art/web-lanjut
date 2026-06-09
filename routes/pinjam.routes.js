@@ -10,16 +10,17 @@ import {
     laporanPengembalian,
     pengembalianBuku
 } from "../controllers/pinjam.controllers.js";
+import { authenticateToken } from "../middleware/VerifyTokens.js";
 
 const router = express.Router();
-router.get("/", getAllPinjam);
-router.post("/", insertPinjam);
-router.get("/dipinjam/:nim", getBukuDipinjam);
-router.post("/kembali/", pengembalianBuku);
-router.get("/laporan", laporanPengembalian);
-router.post("/", tambahpinjambaru);
-router.get("/caripinjam/:id", cariPinjamByID);
-router.patch("/:id", updatePinjam);
-router.delete("/:id", deletePinjam);
+router.get("/", authenticateToken, getAllPinjam);
+router.post("/", authenticateToken, insertPinjam);
+router.get("/dipinjam/:nim", authenticateToken, getBukuDipinjam);
+router.post("/kembali/", authenticateToken, pengembalianBuku);
+router.get("/laporan", authenticateToken, laporanPengembalian);
+router.post("/", authenticateToken, tambahpinjambaru);
+router.get("/caripinjam/:id", authenticateToken, cariPinjamByID);
+router.patch("/:id", authenticateToken, updatePinjam);
+router.delete("/:id", authenticateToken, deletePinjam);
 
 export default router;
