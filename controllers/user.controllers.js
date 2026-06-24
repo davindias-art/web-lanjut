@@ -1,15 +1,6 @@
 import Users from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-export const getAllUser = async (req, res) => {
-
-    try {
-        const user = await Users.findAll();
-        res.json(user);
-    } catch (error) {
-        res.json({ message: error.message });
-    }
-};
 
 export const getAllUser = async (req, res) => {
 
