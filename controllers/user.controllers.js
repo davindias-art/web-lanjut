@@ -5,8 +5,8 @@ import jwt from "jsonwebtoken";
 export const getAllUser = async (req, res) => {
 
     try {
-        const products = await User.findAll();
-        res.json(products);
+        const user = await User.findAll();
+        res.json(user);
     } catch (error) {
         res.json({ message: error.message });
     }
