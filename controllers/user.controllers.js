@@ -46,3 +46,17 @@ export const login = async (req, res) => {
         res.json({ message: error.message });
     }
 };
+
+export const deleteUser = async (req, res) => {
+
+    try {
+        const user = await Users.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({ "message": "User berhasil dihapus" });
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+};
