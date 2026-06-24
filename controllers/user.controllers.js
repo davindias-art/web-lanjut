@@ -11,6 +11,16 @@ export const getAllUser = async (req, res) => {
     }
 };
 
+export const getAllUser = async (req, res) => {
+
+    try {
+        const user = await User.findAll();
+        res.json(user);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+};
+
 export const tambahuser = async (req, res) => {
 
     try {
