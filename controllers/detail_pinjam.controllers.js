@@ -25,6 +25,7 @@ export const tambahdetailpinjambaru=async (req, res)=>{
 export const cariDetailPinjamByID=async (req, res)=>{
     try {
         const data= await Detail_pinjams.findAll({
+            include: { model: Bukus},
             where:{ 
                 id:req.params.id
             }
